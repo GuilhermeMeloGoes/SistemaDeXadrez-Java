@@ -29,8 +29,8 @@ public class PartidaXadrez {
 
     private void iniciarPartida() {
         tabuleiro.localDaPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(2, 1));
-        tabuleiro.localDaPeca(new Rei(tabuleiro, Cor.BRANCO), new Posicao(0, 4));
-        tabuleiro.localDaPeca(new Torre(tabuleiro, Cor.BRANCO), new Posicao(7, 4));
+        tabuleiro.localDaPeca(new Rei(tabuleiro, Cor.PRETO), new Posicao(0, 4));
+        tabuleiro.localDaPeca(new Rei(tabuleiro, Cor.BRANCO), new Posicao(7, 4));
     }
 
 }
