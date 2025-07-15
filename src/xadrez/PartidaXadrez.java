@@ -27,15 +27,24 @@ public class PartidaXadrez {
         return matPeca;
     }
 
-    private void localPecaNova (char coluna, int linha, PecaXadrez pecaXadrez) {
+    private void localPecaNova(char coluna, int linha, PecaXadrez pecaXadrez) {
         tabuleiro.localDaPeca(pecaXadrez, new PosicaoXadrez(coluna, linha).toPosicao());
     }
 
     private void iniciarPartida() {
-        localPecaNova('b', 6,new Torre(tabuleiro, Cor.BRANCO));
-        localPecaNova('e', 8,new Rei(tabuleiro, Cor.PRETO));
-        localPecaNova('e', 1,new Rei(tabuleiro, Cor.BRANCO));
+        localPecaNova('c', 1, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('c', 2, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('d', 2, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('e', 2, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('e', 1, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('d', 1, new Rei(tabuleiro, Cor.BRANCO));
 
+        localPecaNova('c', 7, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('c', 8, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('d', 7, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('e', 7, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('e', 8, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('d', 8, new Rei(tabuleiro, Cor.PRETO));
     }
 
 }
