@@ -11,6 +11,5 @@ public class Programa {
 
         UI.imprimirTabuleiro(partida.getPecasXadrez());
 
-
     }
 }
