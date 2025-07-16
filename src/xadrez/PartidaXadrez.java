@@ -3,7 +3,6 @@ package xadrez;
 import TabuleiroJogo.Peca;
 import TabuleiroJogo.Posicao;
 import TabuleiroJogo.Tabuleiro;
-import TabuleiroJogo.TabuleiroException;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -26,6 +25,12 @@ public class PartidaXadrez {
         }
 
         return matPeca;
+    }
+
+    public boolean[][] movimentosPossiveis(PosicaoXadrez posicao) {
+        Posicao posi = posicao.toPosicao();
+        validacaoPosicaoOrigem(posi);
+        return tabuleiro.peca(posi).movimentoPossivel();
     }
 
     public PecaXadrez movimentoXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {

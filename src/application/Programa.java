@@ -17,10 +17,15 @@ public class Programa {
 
         while (true) {
             try {
-                UI.limparConsole(); 
+                UI.limparConsole();
                 UI.imprimirTabuleiro(partida.getPecasXadrez());
                 System.out.print("\nOrigem: ");
                 PosicaoXadrez origem = UI.lerPosicaoXadrez(sc);
+
+                boolean[][] movimentosPossiveis = partida.movimentosPossiveis(origem);
+
+                UI.limparConsole();
+                UI.imprimirTabuleiro(partida.getPecasXadrez(), movimentosPossiveis);
 
                 System.out.print("\nDestino: ");
                 PosicaoXadrez destino = UI.lerPosicaoXadrez(sc);
