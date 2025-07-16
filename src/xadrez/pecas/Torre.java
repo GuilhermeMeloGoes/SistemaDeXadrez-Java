@@ -39,8 +39,6 @@ public class Torre extends PecaXadrez {
         }
         if (getTabuleiro().posicaoExistente(posiAux) && eUmaPecaAdversaria(posiAux)) {
             matriz[posiAux.getLinha()][posiAux.getColuna()] = true;
-
-            return matriz;
         }
 
         // Para Direita
@@ -51,8 +49,6 @@ public class Torre extends PecaXadrez {
         }
         if (getTabuleiro().posicaoExistente(posiAux) && eUmaPecaAdversaria(posiAux)) {
             matriz[posiAux.getLinha()][posiAux.getColuna()] = true;
-
-            return matriz;
         }
 
         // Para Baixo
@@ -64,6 +60,7 @@ public class Torre extends PecaXadrez {
         if (getTabuleiro().posicaoExistente(posiAux) && eUmaPecaAdversaria(posiAux)) {
             matriz[posiAux.getLinha()][posiAux.getColuna()] = true;
         }
+
         return matriz;
     }
 }
