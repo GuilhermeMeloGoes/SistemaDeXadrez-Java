@@ -6,11 +6,17 @@ import TabuleiroJogo.Tabuleiro;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PartidaXadrez {
 
     private Tabuleiro tabuleiro;
     private int turno;
     private Cor jogadorAtual;
+
+    private List<Peca> pecasTabuleiro = new ArrayList<>();
+    private List<Peca> pecasCapturadas = new ArrayList<>();
 
     public PartidaXadrez() {
         this.tabuleiro = new Tabuleiro(8, 8);
@@ -85,11 +91,18 @@ public class PartidaXadrez {
         Peca pecaCapturada = tabuleiro.removerPeca(destino);
 
         tabuleiro.localDaPeca(pecaRemover, destino);
+
+        if (pecaCapturada != null) {
+            pecasTabuleiro.remove(pecasCapturadas);
+            pecasCapturadas.add(pecaCapturada);
+        }
+
         return pecaCapturada;
     }
 
     private void localPecaNova(char coluna, int linha, PecaXadrez pecaXadrez) {
         tabuleiro.localDaPeca(pecaXadrez, new PosicaoXadrez(coluna, linha).toPosicao());
+        pecasTabuleiro.add(pecaXadrez);
     }
 
 
