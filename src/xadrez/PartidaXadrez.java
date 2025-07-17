@@ -3,9 +3,7 @@ package xadrez;
 import TabuleiroJogo.Peca;
 import TabuleiroJogo.Posicao;
 import TabuleiroJogo.Tabuleiro;
-import xadrez.pecas.Peao;
-import xadrez.pecas.Rei;
-import xadrez.pecas.Torre;
+import xadrez.pecas.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -203,8 +201,12 @@ public class PartidaXadrez {
     private void iniciarPartida() {
 
         localPecaNova('a', 1, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('b', 1, new Cavalo(tabuleiro, Cor.BRANCO));
+        localPecaNova('g', 1, new Cavalo(tabuleiro, Cor.BRANCO));
         localPecaNova('e', 1, new Rei(tabuleiro, Cor.BRANCO));
         localPecaNova('h', 1, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('c', 1, new Bispo(tabuleiro, Cor.BRANCO));
+        localPecaNova('f', 1, new Bispo(tabuleiro, Cor.BRANCO));
         localPecaNova('a', 2, new Peao(tabuleiro, Cor.BRANCO));
         localPecaNova('b', 2, new Peao(tabuleiro, Cor.BRANCO));
         localPecaNova('c', 2, new Peao(tabuleiro, Cor.BRANCO));
@@ -216,8 +218,12 @@ public class PartidaXadrez {
 
 
         localPecaNova('a', 8, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('b', 8, new Cavalo(tabuleiro, Cor.PRETO));
+        localPecaNova('g', 8, new Cavalo(tabuleiro, Cor.PRETO));
         localPecaNova('e', 8, new Rei(tabuleiro, Cor.PRETO));
         localPecaNova('h', 8, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('c', 8, new Bispo(tabuleiro, Cor.PRETO));
+        localPecaNova('f', 8, new Bispo(tabuleiro, Cor.PRETO));
         localPecaNova('a', 7, new Peao(tabuleiro, Cor.PRETO));
         localPecaNova('b', 7, new Peao(tabuleiro, Cor.PRETO));
         localPecaNova('c', 7, new Peao(tabuleiro, Cor.PRETO));
@@ -226,6 +232,9 @@ public class PartidaXadrez {
         localPecaNova('f', 7, new Peao(tabuleiro, Cor.PRETO));
         localPecaNova('g', 7, new Peao(tabuleiro, Cor.PRETO));
         localPecaNova('h', 7, new Peao(tabuleiro, Cor.PRETO));
+
+
+
     }
 
 

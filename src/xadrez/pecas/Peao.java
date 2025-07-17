@@ -16,11 +16,6 @@ public class Peao extends PecaXadrez {
         return "P ";
     }
 
-    public boolean podeMover(Posicao posicao) {
-        PecaXadrez p = (PecaXadrez) getTabuleiro().peca(posicao);
-        return p == null || p.getCor() != getCor();
-    }
-
     @Override
     public boolean[][] movimentoPossivel() {
         boolean[][] matriz = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
