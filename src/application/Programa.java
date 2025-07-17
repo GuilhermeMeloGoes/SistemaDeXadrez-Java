@@ -38,6 +38,12 @@ public class Programa {
                 if (pecaCapturada != null) {
                     pecasCapturadas.add(pecaCapturada);
                 }
+
+                if (partida.getPromocao() != null) {
+                    System.out.println("Entre com a peça que deseja trocar (B/T/C/r) : ");
+                    String tipoPeca = sc.nextLine();
+                    partida.trocaPecaPromocao(tipoPeca);
+                }
             } catch (TabuleiroException | InputMismatchException e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
