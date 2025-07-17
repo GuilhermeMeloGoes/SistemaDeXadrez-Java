@@ -204,6 +204,7 @@ public class PartidaXadrez {
         localPecaNova('b', 1, new Cavalo(tabuleiro, Cor.BRANCO));
         localPecaNova('g', 1, new Cavalo(tabuleiro, Cor.BRANCO));
         localPecaNova('e', 1, new Rei(tabuleiro, Cor.BRANCO));
+        localPecaNova('d', 1, new Rainha(tabuleiro, Cor.BRANCO));
         localPecaNova('h', 1, new Torre(tabuleiro, Cor.BRANCO));
         localPecaNova('c', 1, new Bispo(tabuleiro, Cor.BRANCO));
         localPecaNova('f', 1, new Bispo(tabuleiro, Cor.BRANCO));
@@ -221,6 +222,7 @@ public class PartidaXadrez {
         localPecaNova('b', 8, new Cavalo(tabuleiro, Cor.PRETO));
         localPecaNova('g', 8, new Cavalo(tabuleiro, Cor.PRETO));
         localPecaNova('e', 8, new Rei(tabuleiro, Cor.PRETO));
+        localPecaNova('d', 8, new Rainha(tabuleiro, Cor.PRETO));
         localPecaNova('h', 8, new Torre(tabuleiro, Cor.PRETO));
         localPecaNova('c', 8, new Bispo(tabuleiro, Cor.PRETO));
         localPecaNova('f', 8, new Bispo(tabuleiro, Cor.PRETO));
