@@ -3,6 +3,7 @@ package xadrez;
 import TabuleiroJogo.Peca;
 import TabuleiroJogo.Posicao;
 import TabuleiroJogo.Tabuleiro;
+import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -61,7 +62,6 @@ public class PartidaXadrez {
         validacaoPosicaoOrigem(posi);
         return tabuleiro.peca(posi).movimentoPossivel();
     }
-
 
     public PecaXadrez movimentoXadrez(PosicaoXadrez posicaoOrigem, PosicaoXadrez posicaoDestino) {
         Posicao origem = posicaoOrigem.toPosicao();
@@ -201,13 +201,31 @@ public class PartidaXadrez {
     }
 
     private void iniciarPartida() {
-        localPecaNova('h', 7, new Torre(tabuleiro, Cor.BRANCO));
-        localPecaNova('d', 1, new Torre(tabuleiro, Cor.BRANCO));
+
+        localPecaNova('a', 1, new Torre(tabuleiro, Cor.BRANCO));
         localPecaNova('e', 1, new Rei(tabuleiro, Cor.BRANCO));
+        localPecaNova('h', 1, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('a', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localPecaNova('b', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localPecaNova('c', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localPecaNova('d', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localPecaNova('e', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localPecaNova('f', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localPecaNova('g', 2, new Peao(tabuleiro, Cor.BRANCO));
+        localPecaNova('h', 2, new Peao(tabuleiro, Cor.BRANCO));
 
 
-        localPecaNova('b', 8, new Torre(tabuleiro, Cor.PRETO));
-        localPecaNova('a', 8, new Rei(tabuleiro, Cor.PRETO));
+        localPecaNova('a', 8, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('e', 8, new Rei(tabuleiro, Cor.PRETO));
+        localPecaNova('h', 8, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('a', 7, new Peao(tabuleiro, Cor.PRETO));
+        localPecaNova('b', 7, new Peao(tabuleiro, Cor.PRETO));
+        localPecaNova('c', 7, new Peao(tabuleiro, Cor.PRETO));
+        localPecaNova('d', 7, new Peao(tabuleiro, Cor.PRETO));
+        localPecaNova('e', 7, new Peao(tabuleiro, Cor.PRETO));
+        localPecaNova('f', 7, new Peao(tabuleiro, Cor.PRETO));
+        localPecaNova('g', 7, new Peao(tabuleiro, Cor.PRETO));
+        localPecaNova('h', 7, new Peao(tabuleiro, Cor.PRETO));
     }
 
 

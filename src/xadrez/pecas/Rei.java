@@ -4,7 +4,6 @@ import TabuleiroJogo.Posicao;
 import TabuleiroJogo.Tabuleiro;
 import xadrez.Cor;
 import xadrez.PecaXadrez;
-import xadrez.PosicaoXadrez;
 
 public class Rei extends PecaXadrez {
 

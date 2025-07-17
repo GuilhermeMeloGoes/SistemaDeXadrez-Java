@@ -1,6 +1,5 @@
 package application;
 
-import TabuleiroJogo.Peca;
 import TabuleiroJogo.TabuleiroException;
 import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
@@ -46,8 +45,8 @@ public class Programa {
         }
 
         UI.limparConsole();
-        UI.imprimirPartida(
-                partida, pecasCapturadas);
+        UI.imprimirPartida(partida, pecasCapturadas);
+        UI.imprimirPartida(partida, pecasCapturadas);
 
     }
 }
