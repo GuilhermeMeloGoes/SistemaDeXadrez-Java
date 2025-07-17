@@ -8,7 +8,6 @@ import xadrez.pecas.Torre;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PartidaXadrez {
 
@@ -16,6 +15,7 @@ public class PartidaXadrez {
     private int turno;
     private Cor jogadorAtual;
     private boolean check;
+    private boolean checkMate;
 
     private List<Peca> pecasTabuleiro = new ArrayList<>();
     private List<Peca> pecasCapturadas = new ArrayList<>();
@@ -36,10 +36,13 @@ public class PartidaXadrez {
         return jogadorAtual;
     }
 
-    public boolean getcheck() {
+    public boolean getCheck() {
         return check;
     }
 
+    public boolean getCheckMate() {
+        return checkMate;
+    }
 
     public PecaXadrez[][] getPecasXadrez() {
         PecaXadrez[][] matPeca = new PecaXadrez[tabuleiro.getLinhas()][tabuleiro.getColunas()];
@@ -76,7 +79,12 @@ public class PartidaXadrez {
 
         check = testCheck(oponente(jogadorAtual));
 
-        proximoTurno();
+        if (testCheckMate(oponente(jogadorAtual))) {
+            checkMate = true;
+        } else {
+            proximoTurno();
+        }
+
         return (PecaXadrez) pecaCapturada;
     }
 
@@ -149,11 +157,40 @@ public class PartidaXadrez {
 
         for (Peca p : pecasOponente) {
             boolean[][] mat = p.movimentoPossivel();
-            if (mat[posicaoRei.getLinha()][posicaoRei.getColuna()] ) {
+            if (mat[posicaoRei.getLinha()][posicaoRei.getColuna()]) {
                 return true;
             }
         }
         return false;
+    }
+
+    private boolean testCheckMate(Cor cor) {
+        if (!testCheck(cor)) {
+            return false;
+        }
+
+        List<Peca> listPeca = pecasTabuleiro.stream().filter(p -> ((PecaXadrez) p).getCor() == cor).toList();
+        for (Peca p : listPeca) {
+            boolean[][] mat = p.movimentoPossivel();
+
+            for (int i = 0; i < mat.length; i++) {
+                for (int j = 0; j < mat[0].length; j++) {
+                    if (mat[i][j]) {
+                        Posicao origem = ((PecaXadrez) p).getPosicaoXadrez().toPosicao();
+                        Posicao destino = new Posicao(i, j);
+                        Peca pecaCapturada = movimentoPeca(origem, destino);
+                        boolean testCheck = testCheck(cor);
+                        desfazerMovimento(origem, destino, pecaCapturada);
+
+                        if (!testCheck) {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+        }
+        return true;
     }
 
     private void localPecaNova(char coluna, int linha, PecaXadrez pecaXadrez) {
@@ -162,19 +199,13 @@ public class PartidaXadrez {
     }
 
     private void iniciarPartida() {
-        localPecaNova('c', 1, new Torre(tabuleiro, Cor.BRANCO));
-        localPecaNova('c', 2, new Torre(tabuleiro, Cor.BRANCO));
-        localPecaNova('d', 2, new Torre(tabuleiro, Cor.BRANCO));
-        localPecaNova('e', 2, new Torre(tabuleiro, Cor.BRANCO));
-        localPecaNova('e', 1, new Torre(tabuleiro, Cor.BRANCO));
-        localPecaNova('d', 1, new Rei(tabuleiro, Cor.BRANCO));
+        localPecaNova('h', 7, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('d', 1, new Torre(tabuleiro, Cor.BRANCO));
+        localPecaNova('e', 1, new Rei(tabuleiro, Cor.BRANCO));
 
-        localPecaNova('c', 7, new Torre(tabuleiro, Cor.PRETO));
-        localPecaNova('c', 8, new Torre(tabuleiro, Cor.PRETO));
-        localPecaNova('d', 7, new Torre(tabuleiro, Cor.PRETO));
-        localPecaNova('e', 7, new Torre(tabuleiro, Cor.PRETO));
-        localPecaNova('e', 8, new Torre(tabuleiro, Cor.PRETO));
-        localPecaNova('d', 8, new Rei(tabuleiro, Cor.PRETO));
+
+        localPecaNova('b', 8, new Torre(tabuleiro, Cor.PRETO));
+        localPecaNova('a', 8, new Rei(tabuleiro, Cor.PRETO));
     }
 
 
