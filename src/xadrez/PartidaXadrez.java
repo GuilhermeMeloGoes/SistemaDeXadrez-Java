@@ -5,7 +5,6 @@ import TabuleiroJogo.Posicao;
 import TabuleiroJogo.Tabuleiro;
 import xadrez.pecas.*;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,7 +107,7 @@ public class PartidaXadrez {
             throw new IllegalStateException("Não tem peça a ser trocada!");
         }
         if (!tipoPeca.equals("B") && !tipoPeca.equals("C") && !tipoPeca.equals("T") && !tipoPeca.equals("r")) {
-            throw new InvalidParameterException("Tipo da peça inválido!");
+            return promocao;
         }
 
         Posicao posi = promocao.getPosicaoXadrez().toPosicao();

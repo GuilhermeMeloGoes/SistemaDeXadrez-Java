@@ -40,8 +40,12 @@ public class Programa {
                 }
 
                 if (partida.getPromocao() != null) {
-                    System.out.println("Entre com a peça que deseja trocar (B/T/C/r) : ");
+                    System.out.print("Entre com a peça que deseja trocar (B/T/C/r) : ");
                     String tipoPeca = sc.nextLine();
+                    while (!tipoPeca.equals("B") && !tipoPeca.equals("C") && !tipoPeca.equals("T") && !tipoPeca.equals("r")){
+                        System.out.print("Valor Inválido! Entre com a peça que deseja trocar (B/T/C/r) : ");
+                        tipoPeca = sc.nextLine();
+                    }
                     partida.trocaPecaPromocao(tipoPeca);
                 }
             } catch (TabuleiroException | InputMismatchException e) {
