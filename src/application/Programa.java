@@ -46,7 +46,8 @@ public class Programa {
         }
 
         UI.limparConsole();
-        UI.imprimirPartida(partida, pecasCapturadas);
+        UI.imprimirPartida(
+                partida, pecasCapturadas);
 
     }
 }
