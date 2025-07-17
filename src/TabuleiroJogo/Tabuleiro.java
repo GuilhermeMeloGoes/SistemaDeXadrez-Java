@@ -5,7 +5,7 @@ public class Tabuleiro {
     private int linhas;
     private int colunas;
 
-    private Peca[][] peca;
+    private Peca[][] pecas;
 
     public Tabuleiro(int linhas, int colunas) {
         if (linhas < 1 || colunas < 1) {
@@ -13,7 +13,7 @@ public class Tabuleiro {
         }
         this.linhas = linhas;
         this.colunas = colunas;
-        peca = new Peca[linhas][colunas];
+        pecas = new Peca[linhas][colunas];
     }
 
     public int getLinhas() {
@@ -28,21 +28,21 @@ public class Tabuleiro {
         if (!posicaoExistente(linha, coluna)) {
             throw new TabuleiroException("Posição fora do tabuleiro!");
         }
-        return peca[linha][coluna];
+        return pecas[linha][coluna];
     }
 
     public Peca peca(Posicao posicao) {
         if (!posicaoExistente(posicao)) {
             throw new TabuleiroException("Posição fora do tabuleiro!");
         }
-        return peca[posicao.getLinha()][posicao.getColuna()];
+        return pecas[posicao.getLinha()][posicao.getColuna()];
     }
 
     public void localDaPeca(Peca peca, Posicao posicao) {
         if (eUmaPeca(posicao)) {
             throw new TabuleiroException("Ja existe uma peça nessa posição: " + posicao);
         }
-        this.peca[posicao.getLinha()][posicao.getColuna()] = peca;
+        this.pecas[posicao.getLinha()][posicao.getColuna()] = peca;
         peca.posicao = posicao;
     }
 
@@ -57,17 +57,14 @@ public class Tabuleiro {
 
         Peca auxPeca = peca(posicao);
         auxPeca.posicao = null;
-        peca[posicao.getLinha()][posicao.getColuna()] = null;
+        pecas[posicao.getLinha()][posicao.getColuna()] = null;
 
         return auxPeca;
 
     }
 
     public boolean posicaoExistente(int linha, int coluna) {
-        if (linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas) {
-            return true;
-        }
-        return false;
+        return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas;
     }
 
     public boolean posicaoExistente(Posicao posicao) {

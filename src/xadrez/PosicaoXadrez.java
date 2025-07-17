@@ -24,17 +24,11 @@ public class PosicaoXadrez {
     }
 
     protected Posicao toPosicao() {
-        int linha = 8 - this.linha;
-        int coluna = this.coluna - 'a';
-
-        return new Posicao(linha, coluna);
+        return new Posicao(8 - linha, coluna - 'a');
     }
 
-    protected static PosicaoXadrez toPosicaoXadrez (Posicao posicao) {
-        int linha =  8 - posicao.getLinha();
-        char coluna = (char) ('a' - posicao.getColuna());
-
-        return new PosicaoXadrez(coluna, linha);
+    protected static PosicaoXadrez toPosicaoXadrez(Posicao posicao) {
+        return new PosicaoXadrez((char) ('a' + posicao.getColuna()), 8 - posicao.getLinha());
     }
 
     @Override
